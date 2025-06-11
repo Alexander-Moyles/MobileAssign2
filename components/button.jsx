@@ -1,9 +1,17 @@
 import { StyleSheet, View, Pressable, Text } from 'react-native';
 
-export default function Button({ label, onPress }: Props) {
+export default function Button({ label, onPress, isDisabled }: Props) {
+  let pressEvent = onPress;
+  let buttonStyle = styles.buttonContainer;
+
+  if (isDisabled == label) {
+      pressEvent = () => {}
+      buttonStyle = styles.disabledContainer
+  }
+
   return (
-    <View style={styles.buttonContainer}>
-      <Pressable style={styles.button} onPress={onPress}>
+    <View style={buttonStyle}>
+      <Pressable style={styles.button} onPress={pressEvent}>
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>
@@ -33,5 +41,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '500',
     fontSize: 16,
+  },
+  disabledContainer: {
+    backgroundColor: '#BB8D93',
+    width: 60,
+    height: 45,
+    marginHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 3,
+    marginTop: 5,
+    borderRadius: 10,
   }
 });

@@ -11,6 +11,10 @@ export default function Transformer({decepticonData, image}: Props) {
             <Text style={{ fontSize: 15 }}>Strength: {decepticonData.strength}</Text>
             <Text style={{ fontSize: 15 }}>Intelligence: {decepticonData.intelligence}</Text>
             <Text style={{ fontSize: 15 }}>Speed: {decepticonData.speed}</Text>
+            <Text style={{ fontSize: 15 }}>Endurance: {decepticonData.endurance}</Text>
+            <Text style={{ fontSize: 15 }}>Courage: {decepticonData.courage}</Text>
+            <Text style={{ fontSize: 15 }}>Firepower: {decepticonData.firepower}</Text>
+            <Text style={{ fontSize: 15 }}>Skill: {decepticonData.skill}</Text>
         </>
     )
 }

@@ -31,9 +31,9 @@ export default function Index() {
                 flexDirection:"row"
               }}
             >
-          <Button label={"1"} onPress={() => setTransformerIndex(transformerIndex = 0)}/>
-          <Button label={"2"} onPress={() => setTransformerIndex(transformerIndex = 1)}/>
-          <Button label={"3"} onPress={() => setTransformerIndex(transformerIndex = 2)}/>
+          <Button label={"1"} onPress={() => setTransformerIndex(transformerIndex = 0)} isDisabled={transformerIndex + 1}/>
+          <Button label={"2"} onPress={() => setTransformerIndex(transformerIndex = 1)} isDisabled={transformerIndex + 1}/>
+          <Button label={"3"} onPress={() => setTransformerIndex(transformerIndex = 2)} isDisabled={transformerIndex + 1}/>
       </View>
     </View>
   );

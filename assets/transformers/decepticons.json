@@ -1,5 +1,5 @@
 [
-  {"name":"Soundwave","image":"soundwave","altMode":"Micro-Casette Player","rank":8,"strength":7.5,"intelligence":9,"speed":1.5},
-  {"name":"Leozack","image":"leozack","altMode":"Tomcat Fighter Jet","rank":9,"strength":8,"intelligence":8,"speed":9},
-  {"name":"Deathsaurus","image":"ds","altMode":"Kaiju-Griffin","rank":10,"strength":10,"intelligence":10,"speed":10}
+  {"name":"Soundwave","image":"soundwave","altMode":"Micro-Casette Player","rank":8,"strength":8,"intelligence":9,"speed":2,"endurance":6,"courage":5,"firepower":6,"skill":10},
+  {"name":"Leozack","image":"leozack","altMode":"Tomcat Fighter Jet","rank":9,"strength":8,"intelligence":8,"speed":9,"endurance":8,"courage":8,"firepower":8,"skill":8},
+  {"name":"Deathsaurus","image":"ds","altMode":"Kaiju-Griffin","rank":10,"strength":10,"intelligence":10,"speed":10,"endurance":10,"courage":9,"firepower":10,"skill":10}
 ]

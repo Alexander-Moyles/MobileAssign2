@@ -1,5 +1,4 @@
 import { Text, View } from "react-native";
-
 import { useContext } from 'react';
 import { TransformerContext } from "../components/TransformerContext";
 

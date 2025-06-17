@@ -1,12 +1,17 @@
 import { Tabs } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
-
-import { useContext } from 'react';
+import { useState } from "react";
 import { TransformerContext } from "../components/TransformerContext";
+import data from "../assets/transformers/decepticons.json";
 
 export default function TabLayout() {
-  return <Tabs>
+
+  const [decepticonData, setdecepticonData] = useState(data);
+
+  return (
+        <TransformerContext.Provider value={{decepticonData, setdecepticonData}}>
+        <Tabs>
             <Tabs.Screen
                 name="index"
                 options={{
@@ -21,11 +26,14 @@ export default function TabLayout() {
                     tabBarIcon: ({ color }) => <AntDesign size={28} name="setting" color={color}/>
                 }}
             />
-         </Tabs>;
+        </Tabs>
+        </TransformerContext.Provider>
+     );
 }
 /*
     Eric's Github:
-    https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/movies.jsx
     https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/_layout.jsx
+    https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/movies.jsx
     https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/updateMovies.jsx
  */
+//TODO: Remember to mention the files are in the Assignment_3 branch on the github when submitting!!

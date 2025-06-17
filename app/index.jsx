@@ -3,6 +3,9 @@ import { useState } from "react";
 import Transformer from "@/components/transformer.jsx";
 import Button from '@/components/button.jsx'
 
+import { useContext } from 'react';
+import { TransformerContext } from "../components/TransformerContext";
+
 const soundwave = require("../assets/images/Soundwave.jpg");
 const leozack = require("../assets/images/Leozack.jpg");
 const ds = require("../assets/images/Deathsaurus.jpg");

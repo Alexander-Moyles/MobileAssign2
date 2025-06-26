@@ -7,10 +7,10 @@ import data from "../assets/transformers/decepticons.json";
 
 export default function TabLayout() {
 
-  const [decepticonData, setdecepticonData] = useState(data);
+  const [decepticonData, setDecepticonData] = useState(data);
 
   return (
-        <TransformerContext.Provider value={{decepticonData, setdecepticonData}}>
+        <TransformerContext.Provider value={{decepticonData, setDecepticonData}}>
         <Tabs>
             <Tabs.Screen
                 name="index"

@@ -12,9 +12,8 @@ const ds = require("../assets/images/Deathsaurus.jpg");
 const images = {"soundwave":soundwave, "leozack":leozack, "ds":ds};
 
 export default function Index() {
-  const { decepticonData } = useContext(TransformerContext);
+  const { decepticonData, setDecepticonData } = useContext(TransformerContext);
   const [transformerIndex, setTransformerIndex] = useState(0);
-  console.log(decepticonData);
 
   return (
     <View

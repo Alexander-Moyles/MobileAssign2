@@ -1,7 +1,9 @@
-import { Text, View, TextInput, Button } from "react-native";
+import { Text, View, TextInput, Button, StyleSheet, ImageBackground } from "react-native";
 import { useContext, useState } from 'react';
 import { TransformerContext } from "../components/TransformerContext";
 import { Picker } from '@react-native-picker/picker';
+
+const background = require("../assets/images/background5.jpg");
 
 export default function Editor() {
 
@@ -18,46 +20,7 @@ export default function Editor() {
     const [courage, setCourage] = useState(decepticonData[currentTransformer].courage);
     const [firepower, setFirepower] = useState(decepticonData[currentTransformer].firepower);
     const [skill, setSkill] = useState(decepticonData[currentTransformer].skill);
-
-    const changeRank = (value) => {
-        const updatedRank = parseInt(value);
-        setRank(updatedRank);
-    }
-
-    const changeStrength = (value) => {
-        const updatedStrength = parseInt(value);
-        setRank(updatedStrength);
-    }
-
-    const changeIntelligence = (value) => {
-        const updatedIntelligence = parseInt(value);
-        setRank(updatedIntelligence);
-    }
-
-    const changeSpeed = (value) => {
-        const updatedSpeed = parseInt(value);
-        setRank(updatedSpeed);
-    }
-
-    const changeEndurance = (value) => {
-        const updatedEndurance = parseInt(value);
-        setRank(updatedEndurance);
-    }
-
-    const changeCourage = (value) => {
-            const updatedCourage = parseInt(value);
-            setRank(updatedCourage);
-    }
-
-    const changeFirepower = (value) => {
-        const updatedFirepower = parseInt(value);
-        setRank(updatedFirepower);
-    }
-
-    const changeSkill = (value) => {
-        const updatedSkill= parseInt(value);
-        setRank(updatedSkill);
-    }
+    const [image, setImage] = useState(decepticonData[currentTransformer].image);
 
     const updateDecepticonData = () => {
         const updatedData = {
@@ -70,9 +33,9 @@ export default function Editor() {
             endurance: endurance,
             courage: courage,
             firepower: firepower,
-            skill: skill
+            skill: skill,
+            image: image
         }
-        console.log(updatedData);
         decepticonData[currentTransformer] = updatedData;
         setDecepticonData(decepticonData);
     }
@@ -94,87 +57,150 @@ export default function Editor() {
 
     return (
         <>
-            <View
-              style={{
-                flex: 0.85,
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                marginLeft: 16,
-                paddingTop: 10
-              }}
-            >
-                <Text style={{ fontWeight: '700', fontSize: 20 }}>Decepticon #:</Text>
-                <Picker
-                style={{ height: 55, width: 170 }}
-                    selectedValue={parseInt(currentTransformer)}
-                    onValueChange={(itemValue, itemIndex) => changeTransformerIndex(itemIndex)
-                  }>
-                  <Picker.Item label="Decepticon 1" value={0} />
-                  <Picker.Item label="Decepticon 2" value={1} />
-                  <Picker.Item label="Decepticon 3" value={2} />
-                </Picker>
+            <ImageBackground source={background} resizeMode="cover" style={styles.background}>
+                <View style={styles.viewStyle}>
+                    <Text style={styles.boldText}>Decepticon #:</Text>
+                    <Picker
+                    style={styles.picker}
+                        selectedValue={parseInt(currentTransformer)}
+                        onValueChange={(itemValue, itemIndex) => changeTransformerIndex(itemIndex)
+                      }>
+                      <Picker.Item label="Decepticon 1" value={0} />
+                      <Picker.Item label="Decepticon 2" value={1} />
+                      <Picker.Item label="Decepticon 3" value={2} />
+                    </Picker>
 
-                <Text style={{ fontWeight: '700', fontSize: 20 }}>Name:</Text>
-                <TextInput style={{ fontSize: 18 }} value={name.toString()} onChangeText={setName} />
+                    <Text style={styles.boldText}>Name:</Text>
+                    <TextInput style={styles.textInput} value={name.toString()} onChangeText={setName} />
 
 
-                <Text style={{ fontWeight: '700', fontSize: 20 }}>Alternate Mode:</Text>
-                <TextInput style={{ fontSize: 18 }} value={altMode.toString()} onChangeText={setAltMode} />
+                    <Text style={styles.boldText}>Alternate Mode:</Text>
+                    <TextInput style={styles.textInput} value={altMode.toString()}
+                        onChangeText={setAltMode} />
 
-                <Text style={{ fontWeight: '700', fontSize: 20 }}>Stats:</Text>
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Rank:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 65 }}
-                        value={rank.toString()} onChangeText={changeRank} />
+                    <Text style={styles.boldText}>Stats:</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Rank:</Text>
+                        <TextInput style={styles.statRank}
+                            value={rank.toString()} onChangeText={setRank} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Strength:</Text>
+                        <TextInput style={styles.statStr}
+                            value={strength.toString()} onChangeText={setStrength} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Intelligence:</Text>
+                        <TextInput style={styles.statInt}
+                            value={intelligence.toString()} onChangeText={setIntelligence} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Speed:</Text>
+                        <TextInput style={styles.statSpeed}
+                            value={speed.toString()} onChangeText={setSpeed} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Endurance:</Text>
+                        <TextInput style={styles.statEnd}
+                            value={endurance.toString()} onChangeText={setEndurance} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Courage:</Text>
+                        <TextInput style={styles.statCourage}
+                            value={courage.toString()} onChangeText={setCourage} />
+                    </View>
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <Text style={styles.statInput}>Firepower:</Text>
+                        <TextInput style={styles.statFire}
+                            value={firepower.toString()} onChangeText={setFirepower} />
+                    </View>
+
+                    <View style={styles.statView}>
+                        <Text style={styles.statInput}>Skill:</Text>
+                        <TextInput style={styles.statSkill}
+                            value={skill.toString()} onChangeText={setSkill} />
+                    </View>
+
+                    <Text style={styles.boldText}>Image:</Text>
+                    <Picker
+                      style={styles.picker}
+                      selectedValue={image}
+                      onValueChange={(itemValue, itemIndex) =>
+                        setImage(itemValue)
+                      }>
+                      <Picker.Item label="Soundwave" value="soundwave" />
+                      <Picker.Item label="Leozack" value="leozack" />
+                      <Picker.Item label="Deathsaurus" value="ds" />
+                      <Picker.Item label="Liokaiser" value="lk" />
+                      <Picker.Item label="Megatron" value="megs" />
+                      <Picker.Item label="Shockwave" value="shockwave" />
+                    </Picker>
+
+                    <View style={styles.fixToText}>
+                        <Button color="#944BCD" title="Update" onPress={updateDecepticonData} />
+                    </View>
                 </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Strength:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 36 }}
-                        value={strength.toString()} onChangeText={changeStrength} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Intelligence:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 12 }}
-                        value={intelligence.toString()} onChangeText={changeIntelligence} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Speed:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 54 }}
-                        value={speed.toString()} onChangeText={changeSpeed} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Endurance:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 19 }}
-                        value={endurance.toString()} onChangeText={changeEndurance} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Courage:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 35 }}
-                        value={courage.toString()} onChangeText={changeCourage} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Firepower:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 23 }}
-                        value={firepower.toString()} onChangeText={changeFirepower} />
-                </View>
-
-                <View style={{ flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{ fontWeight: '400', fontSize: 18, marginTop: -3 }}>Skill:</Text>
-                    <TextInput style={{ fontSize: 17, marginLeft: 70 }}
-                        value={skill.toString()} onChangeText={changeSkill} />
-                </View>
-
-                <Text style={{ fontWeight: '700', fontSize: 20 }}>Image:</Text>
-                {/** TODO: Add picker to switch the images */}
-
-                <Button title="Update" onPress={updateDecepticonData} />
-            </View>
+            </ImageBackground>
         </>
     );
 }
+
+const styles = StyleSheet.create({
+    viewStyle: {
+        flex: 0.85,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    boldText: {
+        fontWeight: '700',
+        fontSize: 20,
+        color: "#41BF10"
+    },
+    statInput: {
+        fontWeight: '400',
+        fontSize: 18,
+        marginTop: -3,
+        color: "#E33DC5"
+    },
+    picker: {
+        height: 55,
+        width: 170,
+        backgroundColor: "#9323B3",
+        color: "#fff",
+        marginBottom: 7
+    },
+    fixToText: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    statView: {
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection:"row"
+    },
+    textInput: {
+        fontSize: 18,
+        backgroundColor: '#E8E8E8',
+        borderRadius: 15
+    },
+    background: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    statRank: { fontSize: 17, marginLeft: 65, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statStr: { fontSize: 17, marginLeft: 36, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statInt: { fontSize: 17, marginLeft: 12, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statSpeed: { fontSize: 17, marginLeft: 54, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statEnd: { fontSize: 17, marginLeft: 19, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statCourage: { fontSize: 17, marginLeft: 35, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statFire: { fontSize: 17, marginLeft: 23, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 },
+    statSkill: { fontSize: 17, marginLeft: 70, backgroundColor: '#E8E8E8', borderRadius: 5, width: 25 }
+});

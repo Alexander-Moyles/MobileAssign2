@@ -15,7 +15,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Top 3',
+                    title: 'Top 3 List',
                     tabBarIcon: ({ color }) => <AntDesign size={28} name="bars" color={color}/>
                 }}
             />

@@ -30,10 +30,3 @@ export default function TabLayout() {
         </TransformerContext.Provider>
      );
 }
-/*
-    Eric's Github:
-    https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/_layout.jsx
-    https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/movies.jsx
-    https://github.com/EricStockTeacher/EricsMovies/blob/96c6d11963dfea5293966256ff68736c08eb52f7/app/updateMovies.jsx
- */
-//TODO: Remember to mention the files are in the Assignment_3 branch on the github when submitting!!
